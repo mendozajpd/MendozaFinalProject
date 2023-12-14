@@ -1,5 +1,6 @@
 <?php
 
+// use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,13 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/dogs', 'DogController@index');
-Route::get('/dogs/create', 'DogController@create');
-Route::post('/dogs', 'DogController@store');
-Route::get('/dogs/{dog}/edit', 'DogController@edit');
-Route::put('/dogs/{dog}', 'DogController@update');
-Route::delete('/dogs/{dog}', 'DogController@destroy');
+// Route::resource("/student", StudentController::class);
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('index');
+})->name('index');
+
+Route::get('/components', function () {
+    return view('components');
+})->name('components');
