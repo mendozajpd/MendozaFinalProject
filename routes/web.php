@@ -1,6 +1,6 @@
 <?php
 
-// use App\Http\Controllers\StudentController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,10 +17,12 @@ use Illuminate\Support\Facades\Route;
 
 // Route::resource("/student", StudentController::class);
 
-Route::get('/', function () {
-    return view('index');
-})->name('index');
+Route::get('/', [HomeController::class,'index'])->name('home');
 
 Route::get('/components', function () {
     return view('components');
 })->name('components');
+
+Route::get('/login', function () {
+    return view('login');
+})->name('login');
