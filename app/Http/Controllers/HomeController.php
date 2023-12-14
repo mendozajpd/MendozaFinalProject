@@ -6,6 +6,8 @@ use App\Models\About;
 use App\Models\PageHeader;
 use App\Models\Skill;
 use App\Models\Project;
+use App\Models\Testimonial;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -19,9 +21,27 @@ class HomeController extends Controller
         $pageHeaderData = PageHeader::first();
         $skillData = Skill::all();
         $projectData = Project::all();
+        $testimonialData = Testimonial::all();
 
-        return view('home', compact('aboutData','pageHeaderData','skillData','projectData'));
+        return view('home', compact('aboutData','pageHeaderData','skillData','projectData','testimonialData'));
     }
+
+    public function login(Request $request)
+    {
+        $username = $request->input('username');
+        $password = $request->input('password');
+        
+        $user = User::where('name', $username)->first();
+    
+        if ($user && $user->password === $password) {
+            // Username and password match
+            return redirect()->route('home');
+        } else {
+            // Authentication failed
+            return redirect()->back()->with('error', 'Invalid username or password');
+        }
+    }
+
 
     /**
      * Show the form for creating a new resource.
