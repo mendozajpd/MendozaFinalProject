@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\Auth\LoginRegisterController;
+use App\Http\Controllers\AboutController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,15 +16,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-// Route::resource("/student", StudentController::class);
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/edit_page', [HomeController::class, 'edit_page'])->name('editpage');
+Route::post('/edit_page', [AboutController::class, 'store'])->name('about.store');
 
-Route::get('/', [HomeController::class,'index'])->name('home');
 
 Route::get('/login_page', function () {
     return view('loginpage');
 })->name('loginpage');
 
-Route::post('/login', [HomeController::class,'login'])->name('login');
+// Route::get('/edit_page', function () {
+//     return view('editpage');
+// })->name('editpage');
+
+Route::post('/login', [HomeController::class, 'login'])->name('login');
 
 Route::get('/components', function () {
     return view('components');

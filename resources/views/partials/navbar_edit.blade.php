@@ -1,7 +1,7 @@
     <!-- Page Navbar -->
     <nav class="custom-navbar" data-spy="affix" data-offset-top="20">
         <div class="container">
-            <a class="logo" href="#">Portfolio</a>
+            <a class="logo" href="#">Edit Portfolio</a>
             <ul class="nav">
                 <li class="item">
                     <a class="link" href="#home">Home</a>
@@ -19,7 +19,7 @@
                     <a class="link" href="#contact">Contact</a>
                 </li>
                 <li class="item ml-md-3">
-                    <a href="{{route('loginpage')}}" class="btn btn-primary">Login</a>
+                    <a href="{{route('home')}}" class="btn btn-primary">Exit Editing</a>
                 </li>
             </ul>
             <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic">
