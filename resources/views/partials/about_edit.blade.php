@@ -31,7 +31,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ route('image.store') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('about.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <label for="image">Profile Picture</label>
                         <input type="file" name="image" class="form-control">
